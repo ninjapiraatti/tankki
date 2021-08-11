@@ -51,7 +51,7 @@ client.on('connect', function() {
 		//var json = JSON.parse(msg);
 		var statcmessage = "tanklol too"
         //res.write("data: " + json.date + ": " + json.msg + "\n\n");
-		res.write("data: " + json.date + ": " + staticmessage + "\n\n");
+		res.write("I am here");
       });
     });
   });
