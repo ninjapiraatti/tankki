@@ -48,10 +48,10 @@ client.on('connect', function() {
     client.subscribe(topic, function() {
       client.on('message', function(topic, msg, pkt) {
 		//res.write("New message\n");
-		//var json = JSON.parse(msg);
+		var json = JSON.parse(msg);
 		var statcmessage = "tanklol too"
-        //res.write("data: " + json.date + ": " + json.msg + "\n\n");
-		res.write("I am here");
+        res.write("data: " + json.date + ": " + json.msg + "\n\n");
+		//res.write("data: " + json.date + ": " + json.msg + "\n\n");
       });
     });
   });
