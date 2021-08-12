@@ -21,8 +21,8 @@ client.on('connect', function() {
   router.post('/publish', function(req, res) {
 	var msg = JSON.stringify({
 	  date: new Date().toString(),
-	  //msg: req.body.msg
-	  msg: "tanklol"
+	  msg: req.body.msg
+	  //msg: "tanklol"
 	});
     client.publish(topic, msg, function() {
       res.writeHead(204, { 'Connection': 'keep-alive' });
