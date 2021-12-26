@@ -50,7 +50,7 @@ client.on('connect', function() {
 		//res.write("New message\n");
 		var json = JSON.parse(msg);
 		var statcmessage = "tanklol too"
-		if (json.values.length) {
+		if (json.values) {
 			res.write("data: " + json.date + ": " + json.values[0] + "\n\n");
 		} else {
 			res.write("data: " + json.date + ": " + json.msg + "\n\n");
