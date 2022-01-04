@@ -29,8 +29,9 @@ client.on('connect', function() {
 			
 			//msg: "tanklol"
 		});
+		console.log(req)
+		console.log(req.body)
 		console.log(msg)
-		console.log(req.body.turnleft)
 		client.publish(topic, msg, function() {
 			res.writeHead(204, { 'Connection': 'keep-alive' });
 		res.end();
