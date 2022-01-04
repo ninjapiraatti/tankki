@@ -2,8 +2,8 @@ var express = require('express');
 var mqtt = require('mqtt');
 var router = express.Router();
 var url = require('url');
-app = express()
-app.use(express.json())
+//app = express()
+//app.use(express.json())
 router.use(express.json())
 
 var mqtt_url = process.env.CLOUDMQTT_URL || 'mqtt://localhost:1883';
