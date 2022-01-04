@@ -1,18 +1,16 @@
 var express = require('express');
 var mqtt = require('mqtt');
-//var router = express.Router();
+var router = express.Router();
 var url = require('url');
-const app = require('../app');
 app = express()
 app.use(express.json())
-app.use(express.Router())
 
 var mqtt_url = process.env.CLOUDMQTT_URL || 'mqtt://localhost:1883';
 var topic = process.env.CLOUDMQTT_TOPIC || 'test';
 var client = mqtt.connect(mqtt_url);
 
 /* GET home page. */
-app.get('/', function(req, res, next) {
+router.get('/', function(req, res, next) {
 	var config =  url.parse(mqtt_url);
 	config.topic = topic;
 	res.render('index', {
@@ -22,7 +20,7 @@ app.get('/', function(req, res, next) {
 });
 
 client.on('connect', function() {
-  app.post('/publish', function(req, res) {
+  router.post('/publish', function(req, res) {
 		//var formData = req.body
 		console.log("\n\nREQ: \n")
 		console.log(req)
@@ -63,7 +61,7 @@ client.on('connect', function() {
 		});
 	});
 
-app.get('/stream', function(req, res) {
+	router.get('/stream', function(req, res) {
 		// send headers for event-stream connection
 		// see spec for more information
 		res.writeHead(200, {
@@ -93,4 +91,4 @@ app.get('/stream', function(req, res) {
 	});
 });
 
-module.exports = app;
+module.exports = router;
