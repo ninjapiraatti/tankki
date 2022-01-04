@@ -22,7 +22,7 @@ client.on('connect', function() {
 	console.log(req.body)
 	var msg = JSON.stringify({
 		date: new Date().toString(),
-		msg: req.body.msg
+		msg: req.body.msg,
 		turnleft: req.body.turnleft,
 		turnright: req.body.turnright,
 		goforward: req.body.goforward,
