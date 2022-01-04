@@ -9,12 +9,12 @@ var client = mqtt.connect(mqtt_url);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	var config =  url.parse(mqtt_url);
-	config.topic = topic;
-	res.render('index', {
-		connected: client.connected,
-		config: config
-	});
+  var config =  url.parse(mqtt_url);
+  config.topic = topic;
+  res.render('index', {
+	connected: client.connected,
+	config: config
+  });
 });
 
 client.on('connect', function() {
@@ -28,7 +28,7 @@ client.on('connect', function() {
 	});
     client.publish(topic, msg, function() {
     	res.writeHead(204, { 'Connection': 'keep-alive' });
-    	res.end();
+    res.end();
     });
   });
 
