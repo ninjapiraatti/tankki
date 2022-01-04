@@ -21,7 +21,7 @@ client.on('connect', function() {
   router.post('/publish', function(req, res) {
 		var msg = JSON.stringify({
 			date: new Date().toString(),
-			msg: req.body.msg,
+			msg: req.body.msg.toString(),
 			turnleft: req.body.turnleft,
 			turnright: req.body.turnright,
 			goforward: req.body.goforward,
