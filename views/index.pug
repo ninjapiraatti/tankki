@@ -63,31 +63,28 @@ html
 				var goBackward = inputGoBackward.value;
 
 				const data = {
-					msg: msg,
+					msg: msg || "lol", 
 					turnleft: turnLeft,
 					turnright: turnRight,
 					goforward: goForward,
 					gobackward: goBackward
 				}
 
-				if(msg) {
-					input.value = "";
-					console.log(data)
-					fetch("/publish", {
-						//headers: {"Content-type": "application/x-www-form-urlencoded"},
-						method: "POST",
-						headers: {"Content-type": "application/json; charset=utf-8"},
-						body: JSON.stringify(data)
-						/*
-						body: {
-							msg: msg,
-							turnleft: turnLeft,
-							turnright: turnRight,
-							goforward: goForward,
-							gobackward: goBackward
-						}
-						*/
-					});
-				}
+				console.log(data)
+				fetch("/publish", {
+					//headers: {"Content-type": "application/x-www-form-urlencoded"},
+					method: "POST",
+					headers: {"Content-type": "application/json; charset=utf-8"},
+					body: JSON.stringify(data)
+					/*
+					body: {
+						msg: msg,
+						turnleft: turnLeft,
+						turnright: turnRight,
+						goforward: goForward,
+						gobackward: goBackward
+					}
+					*/
+				});
 			});
 
