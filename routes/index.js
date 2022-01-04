@@ -51,7 +51,7 @@ client.on('connect', function() {
 			//msg: "tanklol"
 		});
 		*/
-		console.log("\n\nREQ BODY: \n")
+		console.log("\n\nDATA: \n")
 		console.log(data)
 		client.publish(topic, data, function() {
 			res.writeHead(204, { 'Connection': 'keep-alive' });
