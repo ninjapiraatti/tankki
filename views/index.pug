@@ -75,8 +75,8 @@ html
 					console.log(data)
 					fetch("/publish", {
 						//headers: {"Content-type": "application/x-www-form-urlencoded"},
-						headers: {"Content-type": "application/json; charset=utf-8"},
 						method: "POST",
+						headers: {"Content-type": "application/json; charset=utf-8"},
 						body: JSON.stringify(data)
 						/*
 						body: {
@@ -87,7 +87,10 @@ html
 							gobackward: goBackward
 						}
 						*/
-					});
+					})
+					.then(function(res) {
+            res.json();
+        	})
 				}
 			});
 
