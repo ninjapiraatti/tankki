@@ -19,7 +19,20 @@ router.get('/', function(req, res, next) {
 
 client.on('connect', function() {
   router.post('/publish', function(req, res) {
-		var msg = JSON.stringify({
+		var formData = req.body
+		console.log(formData)
+		var data = JSON.stringify({
+			date: new Date().toString(),
+			msg: formData.msg,
+			turnleft: formData.turnleft,
+			turnright: formData.turnright,
+			goforward: formData.goforward,
+			gobackward: formData.gobackward,
+			
+			//msg: "tanklol"
+		});
+		/*
+		var data = JSON.stringify({
 			date: new Date().toString(),
 			msg: req.body.msg,
 			turnleft: req.body.turnleft,
@@ -29,10 +42,9 @@ client.on('connect', function() {
 			
 			//msg: "tanklol"
 		});
-		console.log(req)
-		console.log(req.body)
-		console.log(msg)
-		client.publish(topic, msg, function() {
+		*/
+		console.log(data)
+		client.publish(topic, data, function() {
 			res.writeHead(204, { 'Connection': 'keep-alive' });
 		res.end();
 		});
