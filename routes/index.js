@@ -19,7 +19,8 @@ router.get('/', function(req, res, next) {
 
 client.on('connect', function() {
   router.post('/publish', function(req, res) {
-		var formData = req.body
+		//var formData = req.body
+		const formData = JSON.parse(JSON.stringify(req.body));
 		console.log(formData.turnleft)
 		var data = JSON.stringify({
 			date: new Date().toString(),
