@@ -40,7 +40,7 @@ html
 			es.onerror = function(e)  { console.error(e); };
 			es.onopen = function(e) { console.log("Open", e);};
 			es.onmessage = function(e) {
-				console.log("Mesage:", e);
+				//console.log("Mesage:", e);
 				var newElement = document.createElement("li");
 				newElement.classList.add("list-group-item");
 				newElement.textContent = e.data;

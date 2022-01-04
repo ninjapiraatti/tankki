@@ -23,6 +23,10 @@ client.on('connect', function() {
 	var msg = JSON.stringify({
 		date: new Date().toString(),
 		msg: req.body.msg
+		turnleft: req.body.turnleft,
+		turnright: req.body.turnright,
+		goforward: req.body.goforward,
+		gobackward: req.body.gobackward,
 
 	  //msg: "tanklol"
 	});
