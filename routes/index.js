@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
 });
 
 client.on('connect', function() {
-  router.post('/publish', function(req, res) {
+  app.post('/publish', function(req, res) {
 		//var formData = req.body
 		console.log("\n\nREQ: \n")
 		console.log(req)
