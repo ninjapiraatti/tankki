@@ -62,13 +62,23 @@ html
 				var inputGoBackward = document.getElementById("gobackward");
 				var goBackward = inputGoBackward.value;
 
+				const data = {
+					msg: msg,
+					turnleft: turnLeft,
+					turnright: turnRight,
+					goforward: goForward,
+					gobackward: goBackward
+				}
+
 				if(msg) {
 					input.value = "";
-					console.log("Clickety click")
+					console.log(data)
 					fetch("/publish", {
 						//headers: {"Content-type": "application/x-www-form-urlencoded"},
 						headers: {"Content-type": "application/json"},
 						method: "POST",
+						body: data,
+						/*
 						body: {
 							msg: msg,
 							turnleft: turnLeft,
@@ -76,6 +86,7 @@ html
 							goforward: goForward,
 							gobackward: goBackward
 						}
+						*/
 					});
 				}
 			});
