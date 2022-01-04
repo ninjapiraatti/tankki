@@ -19,7 +19,6 @@ router.get('/', function(req, res, next) {
 
 client.on('connect', function() {
   router.post('/publish', function(req, res) {
-		console.log(req.body)
 		var msg = JSON.stringify({
 			date: new Date().toString(),
 			msg: req.body.msg,
@@ -27,9 +26,11 @@ client.on('connect', function() {
 			turnright: req.body.turnright,
 			goforward: req.body.goforward,
 			gobackward: req.body.gobackward,
-
+			
 			//msg: "tanklol"
 		});
+		console.log(msg)
+		console.log(req.body.turnleft)
 		client.publish(topic, msg, function() {
 			res.writeHead(204, { 'Connection': 'keep-alive' });
 		res.end();
