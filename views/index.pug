@@ -15,6 +15,9 @@ html
 							label Message
 							textarea#input.form-control(rows=3) A message
 							input#turnleft(type='number', name='value' min=0 max=5000 step=1)
+							input#turnright(type='number', name='value' min=0 max=5000 step=1)
+							input#goforward(type='number', name='value' min=0 max=5000 step=1)
+							input#gobackward(type='number', name='value' min=0 max=5000 step=1)
 							button#publish(type='button', class="btn btn-default") Send
 				else
 					i Not connected, try reloading the page to connect again
@@ -46,12 +49,25 @@ html
 			document.getElementById("publish").addEventListener("click", function() {
 				var input = document.getElementById("input");
 				var msg = input.value;
+
+				var inputTurnLeft = document.getElementById("turnleft");
+				var turnLeft = inputTurnLeft.value;
+
+				var inputTurnRight = document.getElementById("turnright");
+				var turnRight = inputTurnRight.value;
+
+				var inputGoForward = document.getElementById("goforward");
+				var goForward = inputGoForward.value;
+
+				var inputGoBackward = document.getElementById("gobackward");
+				var goBackward = inputGoBackward.value;
+
 				if(msg) {
 					input.value = "";
 					fetch("/publish", {
 						headers: {"Content-type": "application/x-www-form-urlencoded"},
 						method: "POST",
-						body: "msg=" + msg
+						body: "msg=" + msg + "turnleft=" + turnLeft + "turnright=" + turnRight + "goforward=" + goForward + "gobackward=" + goBackward
 					});
 				}
 			});
