@@ -9,24 +9,26 @@ var client = mqtt.connect(mqtt_url);
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  var config =  url.parse(mqtt_url);
-  config.topic = topic;
-  res.render('index', {
-	connected: client.connected,
-	config: config
-  });
+	var config =  url.parse(mqtt_url);
+	config.topic = topic;
+	res.render('index', {
+		connected: client.connected,
+		config: config
+	});
 });
 
 client.on('connect', function() {
   router.post('/publish', function(req, res) {
+	console.log(req.body)
 	var msg = JSON.stringify({
-	  date: new Date().toString(),
-	  msg: req.body.msg
+		date: new Date().toString(),
+		msg: req.body.msg
+
 	  //msg: "tanklol"
 	});
     client.publish(topic, msg, function() {
-      res.writeHead(204, { 'Connection': 'keep-alive' });
-      res.end();
+    	res.writeHead(204, { 'Connection': 'keep-alive' });
+    	res.end();
     });
   });
 

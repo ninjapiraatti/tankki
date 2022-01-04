@@ -14,6 +14,7 @@ html
             .form-group
               label Message
               textarea#input.form-control(rows=3) A message
+			  input#turnleft(type='number', name='value' min=0 max=5000 step=1)
             button#publish(type='button', class="btn btn-default") Send
         else
           i Not connected, try reloading the page to connect again
