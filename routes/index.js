@@ -20,7 +20,7 @@ router.get('/', function(req, res, next) {
 client.on('connect', function() {
   router.post('/publish', function(req, res) {
 		//var formData = req.body
-		console.log(req.body)
+		console.log(JSON.stringify(req.body))
 		const formData = JSON.parse(req.body);
 		console.log(formData)
 		var data = JSON.stringify({
