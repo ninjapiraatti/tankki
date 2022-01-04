@@ -4,6 +4,7 @@ var router = express.Router();
 var url = require('url');
 app = express()
 app.use(express.json())
+router.use(express.json())
 
 var mqtt_url = process.env.CLOUDMQTT_URL || 'mqtt://localhost:1883';
 var topic = process.env.CLOUDMQTT_TOPIC || 'test';
