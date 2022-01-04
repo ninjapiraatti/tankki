@@ -68,13 +68,13 @@ html
 						//headers: {"Content-type": "application/x-www-form-urlencoded"},
 						headers: {"Content-type": "application/json"},
 						method: "POST",
-						body: {
+						body: JSON.stringify({
 							msg: msg,
 							turnleft: turnLeft,
 							turnright: turnRight,
 							goforward: goForward,
 							gobackward: goBackward,
-						}
+						})
 					});
 				}
 			});
