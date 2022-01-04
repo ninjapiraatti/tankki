@@ -20,12 +20,15 @@ router.get('/', function(req, res, next) {
 client.on('connect', function() {
   router.post('/publish', function(req, res) {
 		//var formData = req.body
+		console.log("\n\nREQ: \n")
 		console.log(req)
+		console.log("\n\nREQ BODY: \n")
 		console.log(req.body)
+		console.log("\n\nREQ BODY (stringified): \n")
 		console.log(JSON.stringify(req.body))
 		//const formData = JSON.parse(JSON.stringify(req.body));
 		const formData = req.body;
-		console.log(formData)
+		//console.log(formData)
 		var data = JSON.stringify({
 			date: new Date().toString(),
 			msg: formData.msg,
@@ -48,6 +51,7 @@ client.on('connect', function() {
 			//msg: "tanklol"
 		});
 		*/
+		console.log("\n\nREQ BODY: \n")
 		console.log(data)
 		client.publish(topic, data, function() {
 			res.writeHead(204, { 'Connection': 'keep-alive' });
